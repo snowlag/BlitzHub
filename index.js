@@ -19,7 +19,7 @@ var express        = require("express"),
     flash            = require("connect-flash");
     User            =  require("./models/User"),
 //mongoose.connect('mongodb://localhost/BlitzHubV7', {useNewUrlParser: true}); 
-mongoose.connect('mongodb+srv://Snowlag:ankitasha@cluster0-iyi5r.mongodb.net/test?retryWrites=true&w=majority');
+mongoose.connect(process.env.databaseURL);
 //Connect to Mongo database ----------------------
 //mongodb+srv://Snowlag:ankitasha@cluster0-iyi5r.mongodb.net/test?retryWrites=true&w=majority
 //Complete the pending Conection----------------------
@@ -69,7 +69,7 @@ app.get("/",function(req,res){
 
 //----------------------------------------------------------------
 //----------------------Assign Port number for local host---------------------------------
-app.listen(process.env.PORT,function(){
-    //console.log(" server has started at 3000");
+app.listen(process.env.PORT,process.env.IP,function(){
+    console.log("Server has started");
 });
 //----------------------------------------------------------------------------------
