@@ -69,7 +69,7 @@ app.get("/",function(req,res){
 
 //----------------------------------------------------------------
 //----------------------Assign Port number for local host---------------------------------
-app.listen(3000,function(){
+app.listen(process.env.PORT,function(){
     console.log(" server has started at 3000");
 });
 //----------------------------------------------------------------------------------
