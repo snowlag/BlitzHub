@@ -18,7 +18,7 @@ var express        = require("express"),
     authRoutes       = require("./routes/auth"),
     flash            = require("connect-flash");
     User            =  require("./models/User"),
-// mongoose.connect('mongodb://localhost/BlitzHubV7', {useNewUrlParser: true}); 
+//mongoose.connect('mongodb://localhost/BlitzHubV7', {useNewUrlParser: true}); 
 mongoose.connect('mongodb+srv://Snowlag:ankitasha@cluster0-iyi5r.mongodb.net/test?retryWrites=true&w=majority');
 //Connect to Mongo database ----------------------
 //mongodb+srv://Snowlag:ankitasha@cluster0-iyi5r.mongodb.net/test?retryWrites=true&w=majority
