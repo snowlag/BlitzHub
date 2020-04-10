@@ -18,9 +18,10 @@ var express        = require("express"),
     authRoutes       = require("./routes/auth"),
     flash            = require("connect-flash");
     User            =  require("./models/User"),
-    
-mongoose.connect('mongodb://localhost/BlitzHubV7', {useNewUrlParser: true});//Connect to Mongo database ----------------------
-
+// mongoose.connect('mongodb://localhost/BlitzHubV7', {useNewUrlParser: true}); 
+mongoose.connect('mongodb+srv://Snowlag:ankitasha@cluster0-iyi5r.mongodb.net/test?retryWrites=true&w=majority');
+//Connect to Mongo database ----------------------
+//mongodb+srv://Snowlag:ankitasha@cluster0-iyi5r.mongodb.net/test?retryWrites=true&w=majority
 //Complete the pending Conection----------------------
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -69,6 +70,6 @@ app.get("/",function(req,res){
 //----------------------------------------------------------------
 //----------------------Assign Port number for local host---------------------------------
 app.listen(3000,function(){
-    console.log("Yelp Camp server has started at 3000");
+    console.log(" server has started at 3000");
 });
 //----------------------------------------------------------------------------------
