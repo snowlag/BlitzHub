@@ -19,7 +19,7 @@ var express        = require("express"),
     flash            = require("connect-flash");
     User            =  require("./models/User"),
 //mongoose.connect('mongodb://localhost/BlitzHubV7', {useNewUrlParser: true}); 
-mongoose.connect(process.env.databaseURL);
+mongoose.connect(process.env.databaseURL,{useNewUrlParser: true});
 //Connect to Mongo database ----------------------
 //mongodb+srv://Snowlag:ankitasha@cluster0-iyi5r.mongodb.net/test?retryWrites=true&w=majority
 //Complete the pending Conection----------------------
