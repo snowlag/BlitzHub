@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            BlitzHub
+        </title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+        <link rel="stylesheet" type="text/css" href="/stylesheets/newPost.css"> 
+        <link rel="stylesheet" href="/stylesheets/home.css">
+        <link rel="stylesheet" href="/stylesheets/userRating.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+        <meta name="viewport" type="text/css" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: #007bff;">
+            <a class="navbar-brand" href="/"><i class="code icon"></i>BlitzHub</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav ">
+                <li class="nav-item">
+                  <a class="nav-link" href="/campgrounds">BlitzCamps</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/BlitzPosts">BlitzBlogs</a>
+                </li>
+              </ul>
+              <ul class="navbar-nav ml-auto">
+                <% if(!currentuser){ %>
+                  <li class="nav-item ">
+                   <a class="nav-link float-right" href="/register">Sign up <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                   <a class="nav-link float-right" href="/login">Login</a>
+                  </li>
+          <% }  else{  %>
+                  <li class="nav-item ">
+                   <a class="nav-link float-right" href="#"><span>Signed in as   : <%= currentuser.username %></span></a>
+                  </li>
+                  <li class="nav-item">
+                   <a class="nav-link float-right" href="/logout">Logout</a>
+                 </li>
+              <% } %>
+              </ul>
+            </div>
+          </nav>
+          <div class="container">
+            <% if(error && error.length>0){  %>
+              <div class="alert alert-danger text-center" role="alert">
+                <%= error %>
+              </div>
+            <% } %>
+            <% if(success && success.length>0){  %>
+              <div class="alert alert-success text-center" role="alert">
+                <%= success %>
+              </div>
+            <% } %>
+           
+        </div>
+          

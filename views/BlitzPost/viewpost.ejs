@@ -1,0 +1,70 @@
+<%- include("../partials/header") %>
+<div class="ui main text container segment">
+    <div class="ui huge header"> <%= post.title %></div>
+     <div class="ui top attached">
+       <div class="item">
+            <img class="ui centered rounded image" src="<%= post.image %>">
+       </div>
+       <div class="content">
+          <span><%= post.created.toDateString() %></span>
+        </div>
+        <div class="description">
+            <p>
+              <%- post.description %><br>
+              <em> Submitted by <%= post.author.username %> </em>
+            <p>
+        </div>
+        <div class="item">
+          <a class="ui black floated basic button" href="/BlitzPosts">
+            <i id="backicon" class="chevron circle left icon"></i>
+            BACK
+          </a>
+          <% if(currentuser && post.author.id.equals(currentuser._id)) {  %>
+            <a href="/BlitzPosts/<%= post.id %>/edit"><button class="ui pink basic button">EDIT</button></a>
+            <form id="delete" class="ui form" action="/BlitzPosts/<%= post.id %>?_method=DELETE" method="POST">
+              <button class="ui red basic button">DELETE</button></a>
+            </form>
+          <% } %>
+          </div>
+        </div>
+   </div>
+   <div class="ui main text container segment">
+    <div class="ui huge header">COMMENTS</div>
+    <div class="ui top attached">
+      <% post.comments.forEach(function(comment){ %>
+        <div class="row">
+            <div class="col-md-12">
+                <strong>
+                    <%= comment.author.username %>
+                </strong> 
+                <span class="float-right"><%= comment.created.toDateString() %></span>
+                <p>
+                    <%= comment.text %>
+                </p>
+                <% if(currentuser && comment.author.id.equals(currentuser._id)){ %>
+                  <form action="/Blitzposts/<%= post._id %>/<%= comment._id %>?_method=DELETE" method="POST">
+                      <button class="ui red basic button">Delete</button>
+                  </form>
+              <% } %>
+            <div class="dropdown-divider"></div>
+          </div>
+      </div>
+    <% }); %>
+      <form action="/BlitzPosts/<%= post.id  %>" method="POST">
+        <div class="form-group">
+          <label for="comment">Your Review</label>
+          <textarea class="form-control" id="comment" name="comment[text]" placeholder="Write something here.."></textarea>
+        </div>
+        <button type="submit" class="ui blue basic button">Post</button>
+     </form>
+    </div>
+
+   </div>    
+
+     
+     
+    
+
+
+
+<%- include("../partials/footer") %>

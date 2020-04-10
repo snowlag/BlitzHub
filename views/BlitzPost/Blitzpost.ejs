@@ -1,0 +1,48 @@
+<%- include("../partials/header") %>
+<div class="ui main text container">
+    <div id="blitzposttitle" class="ui huge header">Blitz Blogs</div>
+    <h3 class="ui header">The hand picked Blogs from all over the world!</h3>
+    <a href="/BlitzPosts/newpost"><button class="ui basic black button">ADD POST</button></a>
+    <div class="ui top attached segment">
+        <div class=" ui divided items">
+            <% posts.forEach(function(post){  %>
+                <div class=item>
+                    <div class="image">
+                        <img src="<%= post.image %>">
+                    </div>
+                    <div class="content">
+                        <a class="header" href="/BlitzPosts/<%= post.id %>"><%= post.title %></a>
+                        <div class="meta">
+                            <span><%= post.created.toDateString() %></span>
+                        </div>
+                        <div class="meta">
+                            <span>Author : <%= post.author.username %></span>
+                        </div>
+                        <div class="description">
+                            <p>
+                                <% if(post.description.length <100){  %>
+                                    <%- post.description %>
+                                <% } else{ %>
+                                <%- post.description.substring(0,100) %>...
+                                <% } %>
+                            </p>
+                        </div>
+                        <div class="extra">
+                            <a class="ui basic floated violet button"href="/BlitzPosts/<%= post.id %>/">
+                                Read More
+                                <i class="right chevron icon"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+</div>
+
+
+<% posts.forEach(function(post){  %>
+    
+<% }); %>
+
+<%- include("../partials/footer") %>

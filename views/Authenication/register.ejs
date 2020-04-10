@@ -1,0 +1,15 @@
+<%- include("../partials/header.ejs") %>
+<h1>
+    Sign Up Page
+</h1>
+<form action="/register" method="POST">
+    <label for="name">Enter username</label>
+    <input id="name" type="text" name="username" placeholder="Enter username" >
+    <label for=""bdate>Enter Bitrhdate</label>
+    <input type="date" name="birthdate" id="bdate">
+    <label for="password">Create Password</label>
+    <input type="password" name="password" id="password">
+    <input type="submit">
+
+</form>
+<%- include("../partials/footer") %>

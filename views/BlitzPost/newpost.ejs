@@ -1,0 +1,21 @@
+<%- include("../partials/header") %>
+<div class="ui main text container segment">
+    <div class="ui huge header">New Post</div>
+    <form action="/BlitzPosts" method="POST" class="ui form">
+      <div class="field">
+        <label>Title</label>
+        <input type="text" placeholder="Title" name="title">
+      </div>
+      <div class="field">
+        <label>Image</label>
+        <input type="text" placeholder="Image Url" name="image"> 
+      </div>
+      <div class="field">
+        <label>Post</label>
+        <textarea id="campbody" name="description" placeholder="Write something here.. or paste your html code"></textarea>
+      </div>
+      <button class="field ui pink basic button btn-block">POST</button>
+    </form>
+</div>
+ 
+<%- include("../partials/footer") %>

@@ -1,0 +1,140 @@
+#landing-header-camp {
+  z-index: 1;
+  position: relative;
+  text-align: center;
+  padding-top: 400px;
+  color: white;
+}
+
+#landing-header-blog {
+  z-index: 1;
+  position: relative;
+  text-align: center;
+  padding-top: 150vh;
+}
+
+.slideshow { 
+  position: relative;
+  width: 100%;
+  height: 100%;
+  top: 10px;
+  left: 0;
+  z-index: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.slideshow li { 
+  width: 100%;
+  height: 500px;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  background-size: 100% 500px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  opacity: 0;
+  z-index: 0;
+  animation: imageAnimation 50s linear infinite; 
+}
+
+.slideshow li:nth-child(1) { 
+  background-image: url(http://i.imgur.com/K3mPv14.jpg) 
+}
+.slideshow li:nth-child(2) { 
+  background-image: url(http://i.imgur.com/SBEmFpv.jpg);
+  animation-delay: 10s; 
+}
+.slideshow li:nth-child(3) { 
+  background-image: url(http://i.imgur.com/emvhOnb.jpg);
+  animation-delay: 20s; 
+}
+.slideshow li:nth-child(4) { 
+  background-image: url(http://i.imgur.com/2LSMCmJ.jpg);
+  animation-delay: 30s; 
+}
+.slideshow li:nth-child(5) { 
+  background-image: url(http://i.imgur.com/TVGe0Ef.jpg);
+  animation-delay: 40s; 
+}
+
+@keyframes imageAnimation { 
+  0% { 
+    opacity: 0; 
+    animation-timing-function: ease-in;
+  }
+  10% {
+    opacity: 1;
+    animation-timing-function: ease-out;
+  }
+  20% {
+    opacity: 1
+  }
+  30% {
+    opacity: 0
+  }
+}
+
+#jumbointro{
+  background-color: #29bcff;
+}
+
+#landing-body{
+  background-color: black;
+}
+.camp-feature{
+  margin-top: 5%;
+}
+#camp-feature-1{
+
+}
+
+#camp-feature-1{
+  background-color: orange;
+  height: 200px;
+  font-size: 20px;
+  color: white;
+}
+
+#camp-feature-2{
+  background-color:rgb(209, 22, 162);
+  height: 200px;
+  font-size: 20px;
+  color: white;
+}
+
+.stars-outer {
+  position: relative;
+  display: inline-block;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+.stars-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+.stars-outer::before {
+  content: "\f005 \f005 \f005 \f005 \f005";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  color: #ccc;
+}
+
+.stars-inner::before {
+  content: "\f005 \f005 \f005 \f005 \f005";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  color: #f8ce0b;
+}
+

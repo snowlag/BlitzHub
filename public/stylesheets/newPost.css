@@ -1,0 +1,26 @@
+.header{
+    text-align: center;
+}
+#delete{
+    display: inline;
+}
+#postbody{
+    height: 20em;
+}
+#campbody{
+    height: 20em;
+}
+#description{
+    height: 20em;
+}
+#blitzposttitle{
+    margin-top: 2%;
+}
+
+#reviewCard{
+    margin-top: 3%;
+    padding: 4%;
+}
+ #delete-camp-form{
+     display: inline;
+ }

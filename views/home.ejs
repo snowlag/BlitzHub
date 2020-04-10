@@ -1,0 +1,74 @@
+<%- include("./partials/header") %>
+<div id="landing-body">
+  <div class="container">
+        <% if(error && error.length > 0){ %>
+            <div class="alert alert-danger" role="alert">
+                <%= error %>
+            </div>
+        <% } %>
+        <% if(success && success.length > 0){ %>
+            <div class="alert alert-success" role="alert">
+                <%= success %>
+            </div>
+        <% } %>
+          </div>
+  
+        <div id="jumbointro" class="jumbotron jumbotron-fluid">
+          <div class="container text-center">
+            <h1 class="display-4">Welcome to BlitzHub</h1>
+            <p class="lead">BlitzHub provides you platform to review over 500 plus handpicked Campgrounds and Blogs submitted to us by users like you.</p>
+            <a class="btn btn-success btn-lg" href="/register">Sign up</a>
+          </div>
+        </div>
+<div class="container">
+    <ul class="slideshow">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+    <div class="camp-content">
+      <div id="landing-header-camp">
+      <h1>BlitzCamp!</h1>
+     <a href="/campgrounds" class="btn btn-lg btn-success">View All Campgrounds</a>
+     </div>
+    </div>
+
+    <div  class="row camp-feature">
+      <div class="col-sm-6">
+        <div class="card" id= "camp-feature-1">
+          <div class="card-body">
+            <h5 class="card-title">Special title treatment</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card" id= "camp-feature-2">
+          <div class="card-body">
+            <h5 class="card-title">Special title treatment</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+     
+
+
+
+
+
+    <div class="blog-content">
+      <div id="landing-header-camp">
+        <h1>BlitzPosts!</h1>
+       <a href="/BlitzPosts" class="btn btn-lg btn-success">View All Blogs</a>
+       </div>
+      
+    </div>
+  </div>
+<div>
+<%- include("./partials/footer") %>

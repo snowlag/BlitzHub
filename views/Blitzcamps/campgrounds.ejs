@@ -1,0 +1,24 @@
+<%- include("../partials/header") %>
+
+<div class="container">
+   <div class="jumbotron">
+      <div class="container">
+       <h1 class="display-4">Welcome to BlitzCamp!</h1>
+       <p class="lead">We provide you the hand-picked campgrounds from india that users like you have given to me</p>
+       <hr class="my-4">
+       <a class="btn btn-primary btn-lg" href="/campgrounds/new" role="button">Add Campground</a>
+      </div>
+   </div>
+   <div class="row d-flex flex-wrap ">
+    <% campgrounds.forEach(function(campground){  %>
+      <div class="col-md-3 col-sm-6">
+         <figure class="figure">
+           <a href="/campgrounds/<%= campground._id %>" ><img src="<%= campground.image %>" class="img-thumbnail figure-img"></a>
+           <figcaption class="figure-caption text-center"><%= campground.name %></figcaption>
+         </figure>
+      </div>
+    <% }); %>
+   </div>
+</div>
+
+<%- include("../partials/footer") %>
