@@ -12,7 +12,7 @@ router.get("/register", function(req, res){
   router.post("/register",function(req, res){
       User.register(new User({
           username: req.body.username,
-          birhdate: req.body.birthdate
+          email: req.body.email
       }), req.body.password , function(err , User){
           if(err){
             req.flash("error","This Username is already taken.");
