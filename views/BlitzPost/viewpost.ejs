@@ -19,7 +19,7 @@
             <i id="backicon" class="chevron circle left icon"></i>
             BACK
           </a>
-          <% if(currentuser && post.author.id.equals(currentuser._id)) {  %>
+          <% if(currentuser && (post.author.id.equals(currentuser._id) || currentuser.isAdmin)) {  %>
             <a href="/BlitzPosts/<%= post.id %>/edit"><button class="ui pink basic button">EDIT</button></a>
             <form id="delete" class="ui form" action="/BlitzPosts/<%= post.id %>?_method=DELETE" method="POST">
               <button class="ui red basic button">DELETE</button></a>
@@ -41,7 +41,7 @@
                 <p>
                     <%= comment.text %>
                 </p>
-                <% if(currentuser && comment.author.id.equals(currentuser._id)){ %>
+                <% if(currentuser && (comment.author.id.equals(currentuser._id) || currentuser.isAdmin)){ %>
                   <form action="/Blitzposts/<%= post._id %>/<%= comment._id %>?_method=DELETE" method="POST">
                       <button class="ui red basic button">Delete</button>
                   </form>

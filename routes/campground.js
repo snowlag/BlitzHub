@@ -13,8 +13,8 @@ router.use(methodOverride("_method"));
 router.get("/campgrounds",function(req,res){
 Campground.find({},function(error,campgrounds){  //Find all the campground from database and add it to campground page.
      if(error){
-         console.log("SOMETHING WENT WROMNG");
-         console.log(error);
+        req.flash("error","Something went wrong")
+        res.redirect("back");
      } else{
        res.render("Blitzcamps/campgrounds",{campgrounds : campgrounds});
          

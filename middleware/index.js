@@ -18,7 +18,7 @@ var Campground = require("../models/campground"),
                     req.flash("error","Campground was not found in database.")
                     res.redirect("/campgrounds");
                 } else{
-                  if(foundcamp.author.id.equals(req.user._id)){
+                  if(foundcamp.author.id.equals(req.user._id) || req.user.isAdmin){
                       next();
                   } else{
                      req.flash("error","Nice try! Not Happening")
@@ -39,7 +39,7 @@ var Campground = require("../models/campground"),
                     req.flash("error","Post was not found in database.");
                     res.redirect("/Blitzposts");
                 } else{
-                  if(foundpost.author.id.equals(req.user._id)){
+                  if(foundpost.author.id.equals(req.user._id) || req.user.isAdmin){
                       next();
                   } else{
                     res.redirect("back");
@@ -59,7 +59,7 @@ var Campground = require("../models/campground"),
                     req.flash("error","Comment was not found in database.");
                     res.redirect("back");
                 } else{
-                  if(foundcomment.author.id.equals(req.user._id)){
+                  if(foundcomment.author.id.equals(req.user._id) || req.user.isAdmin){
                       next();
                   } else{
                       res.redirect("back");

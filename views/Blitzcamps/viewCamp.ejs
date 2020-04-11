@@ -15,7 +15,7 @@
              <span> Rs <%= campground.cost %> per Night</span>
              <br>
             </p>
-            <% if(currentuser && campground.author.id.equals(currentuser._id)){ %>
+            <% if(currentuser && (campground.author.id.equals(currentuser._id) || currentuser.isAdmin)){ %>
                 <a class="btn btn-warning" href="/campgrounds/<%= campground._id %>/edit">EDIT</a>
                 <form id="delete-camp-form"action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST" >
                    <button class="btn btn-danger">DELETE</button>
@@ -158,7 +158,7 @@
                     <p>
                         <%= comment.text %>
                     </p>
-                    <% if(currentuser && comment.author.id.equals(currentuser._id)){ %>
+                    <% if(currentuser && (comment.author.id.equals(currentuser._id) || currentuser.isAdmin)){ %>
                     <form action="/campgrounds/<%= campground._id %>/<%= comment._id %>?_method=DELETE" method="POST">
                         <button class="btn btn-danger">Delete</button>
                     </form>
@@ -169,7 +169,7 @@
         <% }); %>
         <form action="/campgrounds/<%= campground._id %>" method="POST">
               <div class="form-group">
-                <label for="rating-control">Rating</label>
+                <label for="rating-control">Write a review</label>
                 <input type="number" id="rating-control" class="form-control" step="0.1" max="5" min="0" placeholder="Rate 1 - 5" name="comment[rating]">
                 <textarea class="form-control" id="comment" name="comment[text]" placeholder="Write something here.."></textarea>
 

@@ -36,6 +36,11 @@
                    <a class="nav-link float-right" href="/login">Login</a>
                   </li>
           <% }  else{  %>
+                  <% if(currentuser.isAdmin){ %>
+                    <li class="nav-item ">
+                      <a class="nav-link float-right" href="#">ADMIN</span></a>
+                     </li>
+                   <% } %>
                   <li class="nav-item ">
                    <a class="nav-link float-right" href="#"><span>Signed in as   : <%= currentuser.username %></span></a>
                   </li>

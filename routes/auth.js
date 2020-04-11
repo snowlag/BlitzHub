@@ -15,7 +15,7 @@ router.get("/register", function(req, res){
           birhdate: req.body.birthdate
       }), req.body.password , function(err , User){
           if(err){
-            req.flash("error","Something went wrong")
+            req.flash("error","This Username is already taken.");
             res.redirect("back");
           } else{
               passport.authenticate("local")(req , res, function(){
@@ -32,7 +32,8 @@ router.get("/register", function(req, res){
   //------------------handel post login request---------------------------------------
   router.post("/login", passport.authenticate("local",{
       successRedirect: "/",
-      failureRedirect: "/login"
+      failureRedirect: "/login",
+      failureFlash: true
   }), function(req, res){
       req.flash("success","Welcome back " +req.user.username)
   });
