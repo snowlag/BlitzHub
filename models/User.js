@@ -5,7 +5,8 @@ var userSchema = new mongoose.Schema({
     username: String,
     password: String,
     created: {type: Date , default: Date.now },
-    birthdate: Date
+    birthdate: Date,
+    isAdmin: {type : Boolean , default : false}
     
 })
 
