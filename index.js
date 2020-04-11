@@ -16,10 +16,9 @@ var express        = require("express"),
     campgroundRoutes = require("./routes/campground"),
     blogRoutes       = require("./routes/blogs"),
     authRoutes       = require("./routes/auth"),
-    flash            = require("connect-flash");
-    User            =  require("./models/User"),
-mongoose.connect('mongodb+srv://Snowlag:ankitasha@cluster0-iyi5r.mongodb.net/test?retryWrites=true&w=majority', {useNewUrlParser: true}); 
-//mongoose.connect('mongodb+srv://Snowlag:ankitasha@cluster0-iyi5r.mongodb.net/test?retryWrites=true&w=majority');
+    flash            = require("connect-flash"),
+    User            =  require("./models/User");
+mongoose.connect('mongodb://localhost/BlitzHubV7', {useNewUrlParser: true}); 
 //Connect to Mongo database ----------------------
 //mongodb+srv://Snowlag:ankitasha@cluster0-iyi5r.mongodb.net/test?retryWrites=true&w=majority
 //Complete the pending Conection----------------------
