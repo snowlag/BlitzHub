@@ -15,7 +15,7 @@
              <span> Rs <%= campground.cost %> per Night</span>
              <br>
             </p>
-            <% if(currentuser && (campground.author.id.equals(currentuser._id) || currentuser.isAdmin){ %>
+            <% if(currentuser && (campground.author.id.equals(currentuser._id) || currentuser.isAdmin)){ %>
                 <a class="btn btn-warning" href="/campgrounds/<%= campground._id %>/edit">EDIT</a>
                 <form id="delete-camp-form"action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST" >
                    <button class="btn btn-danger">DELETE</button>
