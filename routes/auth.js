@@ -15,8 +15,9 @@ router.get("/register", function(req, res){
           email: req.body.email
       }), req.body.password , function(err , User){
           if(err){
-            req.flash("error","This Username is already taken.");
+            req.flash("error",err.message);
             res.redirect("back");
+            console.log(err);
           } else{
               passport.authenticate("local")(req , res, function(){
                req.flash("success" , "Your Account was created Successfully")
