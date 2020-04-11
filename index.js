@@ -72,6 +72,5 @@ app.get("/",function(req,res){
 //----------------------Assign Port number for local host---------------------------------
 
 app.listen(process.env.PORT,process.env.IP,function(){
-    console.log("Server has started");
-}
-//----------------------------------------------------------------------------------
+    console.log("Server has started")
+});
