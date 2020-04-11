@@ -16,17 +16,12 @@ var express        = require("express"),
     campgroundRoutes = require("./routes/campground"),
     blogRoutes       = require("./routes/blogs"),
     authRoutes       = require("./routes/auth"),
-<<<<<<< HEAD
     flash            = require("connect-flash");
     User            =  require("./models/User"),
 //mongoose.connect('mongodb://localhost/BlitzHubV7', {useNewUrlParser: true}); 
 mongoose.connect(process.env.databaseURL,{useNewUrlParser: true , useUnifiedTopology: true , useCreateIndex : true});
-=======
-    flash            = require("connect-flash"),
-    User            =  require("./models/User");
-mongoose.connect('mongodb://localhost/BlitzHubV7', {useNewUrlParser: true}); 
->>>>>>> localbranch
-//Connect to Mongo database ----------------------
+   
+//mongoose.connect('mongodb://localhost/BlitzHubV7', {useNewUrlParser: true}); 
 //mongodb+srv://Snowlag:ankitasha@cluster0-iyi5r.mongodb.net/test?retryWrites=true&w=majority
 //Complete the pending Conection----------------------
 var db = mongoose.connection;
@@ -75,12 +70,8 @@ app.get("/",function(req,res){
 
 //----------------------------------------------------------------
 //----------------------Assign Port number for local host---------------------------------
-<<<<<<< HEAD
+
 app.listen(process.env.PORT,process.env.IP,function(){
     console.log("Server has started");
-=======
-app.listen(3000,function(){
-    //console.log(" server has started at 3000");
->>>>>>> localbranch
-});
+}
 //----------------------------------------------------------------------------------
