@@ -80,14 +80,19 @@
   background-color: #29bcff;
 }
 
-#landing-body{
+#landing-body-black{
+  margin-top:0;
   background-color: black;
+
 }
+
+#landing-body-light{
+  background-color: white;
+  
+}
+
 .camp-feature{
   margin-top: 5%;
-}
-#camp-feature-1{
-
 }
 
 #camp-feature-1{
@@ -95,6 +100,7 @@
   height: 200px;
   font-size: 20px;
   color: white;
+  margin-top: 4%;
 }
 
 #camp-feature-2{
@@ -102,6 +108,16 @@
   height: 200px;
   font-size: 20px;
   color: white;
+  margin-top: 4%;
+}
+
+#camp-feature-3{
+  background-color:green;
+  height: 220px;
+  font-size: 20px;
+  color: white;
+  margin-top: 3%;
+  margin-bottom: 3%;
 }
 
 .stars-outer {
