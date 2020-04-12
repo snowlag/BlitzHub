@@ -37,7 +37,7 @@
   background-image: url(http://i.imgur.com/K3mPv14.jpg) 
 }
 .slideshow li:nth-child(2) { 
-  background-image: url(http://i.imgur.com/SBEmFpv.jpg);
+  background-image: url(http://i.imgur.com/2LSMCmJ.jpg);
   animation-delay: 10s; 
 }
 .slideshow li:nth-child(3) { 
@@ -45,11 +45,11 @@
   animation-delay: 20s; 
 }
 .slideshow li:nth-child(4) { 
-  background-image: url(http://i.imgur.com/2LSMCmJ.jpg);
+  background-image: url(http://i.imgur.com/TVGe0Ef.jpg);
   animation-delay: 30s; 
 }
 .slideshow li:nth-child(5) { 
-  background-image: url(http://i.imgur.com/TVGe0Ef.jpg);
+  background-image: url(http://i.imgur.com/2LSMCmJ.jpg);
   animation-delay: 40s; 
 }
 
@@ -84,11 +84,7 @@
   background: #009FFF;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #ec2F4B, #009FFF);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #ec2F4B, #009FFF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    
-height: 1200px;
-
-  
-}
+  }
 
 .camp-feature{
   margin-top: 5%;
@@ -96,7 +92,7 @@ height: 1200px;
 
 #camp-feature-1{
   background-color: orange;
-  height: 200px;
+  height: 260px;
   font-size: 20px;
   color: white;
   margin-top: 4%;
@@ -104,7 +100,7 @@ height: 1200px;
 
 #camp-feature-2{
   background-color:rgb(209, 22, 162);
-  height: 200px;
+  height: 260px;
   font-size: 20px;
   color: white;
   margin-top: 4%;
@@ -112,7 +108,7 @@ height: 1200px;
 
 #camp-feature-3{
   background-color:green;
-  height: 220px;
+  height: 260px;
   font-size: 20px;
   color: white;
   margin-top: 3%;
@@ -164,30 +160,34 @@ color: white;
   text-align: center;
 }
 #head-title{
-  font-family: 'Indie Flower', cursive;
-  font-size: 100px;
+  font-size: 70px;
   text-align: center;
 }
 .head-question{
-  font-family: 'Gloria Hallelujah', cursive;
+
   font-size: 40px;
 
 }
 #div-work{
   margin-top: 7%;
-  font-family: 'Gloria Hallelujah', cursive;
   font-size: 27px;
+  margin-bottom: 0;
+  background: #34e89e;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #0f3443, #34e89e);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #0f3443, #34e89e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  padding: 2%;
+  color: #dedede;
 
 }
 #div-what{
   margin-top: 7%;
-  font-family: 'Pacifico', cursive;
   font-size: 35px;
+  color:#6f1919;
 }
 #landpage-post-head{
   background: #c31432;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #240b36, #c31432);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #240b36, #c31432); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: #b6b5b5;  
-padding-bottom: 30px;
+  padding-bottom: 30px;
 }
