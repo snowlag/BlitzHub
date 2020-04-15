@@ -18,8 +18,8 @@ var express        = require("express"),
     authRoutes       = require("./routes/auth"),
     flash            = require("connect-flash"),
     User            =  require("./models/User");
-//mongoose.connect('mongodb://localhost/BlitzHubV7', {useNewUrlParser: true}); 
-mongoose.connect(process.env.databaseURL,{useNewUrlParser: true , useUnifiedTopology: true , useCreateIndex : true});
+mongoose.connect('mongodb://localhost/BlitzHubV7', {useNewUrlParser: true}); 
+//mongoose.connect(process.env.databaseURL,{useNewUrlParser: true , useUnifiedTopology: true , useCreateIndex : true});
    
 //mongoose.connect('mongodb://localhost/BlitzHubV7', {useNewUrlParser: true}); 
 //mongodb+srv://Snowlag:ankitasha@cluster0-iyi5r.mongodb.net/test?retryWrites=true&w=majority
@@ -70,13 +70,13 @@ app.get("/",function(req,res){
 
 //----------------------------------------------------------------
 //----------------------Assign Port number for local host---------------------------------
-/*
+
 app.listen(3000,function(){
   console.log("Server started");
 });
-*/
 
+/*
 app.listen(process.env.PORT,process.env.IP,function(){
   console.log("Server has started")
 }); 
-
+*/

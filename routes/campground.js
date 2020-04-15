@@ -16,6 +16,7 @@ Campground.find({},function(error,campgrounds){  //Find all the campground from 
         req.flash("error","Something went wrong")
         res.redirect("back");
      } else{
+       req.flash("error","BlitzCamps are currently taken down because of COVID-19. Checkout the BlitzPosts. Stay Home stay Safe")
        res.render("Blitzcamps/campgrounds",{campgrounds : campgrounds});
          
      }
