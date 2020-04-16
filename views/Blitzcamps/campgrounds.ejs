@@ -12,8 +12,9 @@
     <% campgrounds.forEach(function(campground){  %>
       <div class="col-sm-6 col-md-4">
          <figure class="figure ">
-           <a href="/campgrounds/<%= campground._id %>" ><img src="<%= campground.image %>" class="img-thumbnail figure-img"></a>
+           <a href="/campgrounds/<%= campground._id %>" ><img src="<%= campground.image %>" class="img-thumbnail figure-img">
            <figcaption id="camp-name" class="figure-caption text-center"><%= campground.name %></figcaption>
+           </a>
          </figure>
       </div>
     <% }); %>
