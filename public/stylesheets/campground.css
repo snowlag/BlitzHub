@@ -2,3 +2,33 @@
     width: 350px;
     height: 300px;
 }
+.camp-desc{
+    font-family: 'Heebo', sans-serif;
+    font-size: 22px
+}
+
+#reviewCard{
+    padding: 4%;
+}
+ #delete-camp-form{
+     display: inline;
+ }
+ #delete-camp-form{
+     float : right;
+ }
+ .camp-jumbo{
+    background-color: #5f5f5f;
+    text-align:center;
+ }
+ .campground-show{
+    background-color: #babebe;
+ }
+ #camp-name{
+     color: black;
+ }
+
+ .add-campground{
+    color: #000000;
+    background-color: #babebe;
+    border-color: #000000;
+ }

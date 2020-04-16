@@ -66,7 +66,7 @@ router.get("/campgrounds/:id" , function(req,res){
             }
     });
 });
-//Adding Comment Route
+//---------------------------------Adding Comment Route--------------------------------------
 router.post("/campgrounds/:id" ,middleware.isLoggedin, function(req,res){
  Campground.findById(req.params.id).populate("comments").exec(function(err , foundCamp){
        if(err){

@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="/stylesheets/register.css">
         <link rel="stylesheet" href="/stylesheets/campground.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-        <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Gloria+Hallelujah&family=Indie+Flower&family=Noto+Sans+HK:wght@500&family=Pacifico&family=Permanent+Marker&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Gloria+Hallelujah&family=Indie+Flower&family=Noto+Sans+HK:wght@500&family=Pacifico&family=Permanent+Marker&display=swap&family=Heebo&display=swap" rel="stylesheet">
         <meta name="viewport" type="text/css" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     </head>
     <body>
@@ -54,14 +54,14 @@
               </ul>
             </div>
           </nav>
-          <div class="container">
+          <div class="flash-msg">
             <% if(error && error.length>0){  %>
-              <div class="alert alert-danger text-center" role="alert">
+              <div class="alert alert-danger flash-msg" role="alert">
                 <%= error %>
               </div>
             <% } %>
             <% if(success && success.length>0){  %>
-              <div class="alert alert-success text-center" role="alert">
+              <div class="alert alert-success flash-msg" role="alert">
                 <%= success %>
               </div>
             <% } %>

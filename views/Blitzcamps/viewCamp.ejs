@@ -1,184 +1,211 @@
 <%- include("../partials/header") %>
-<div class="container">
-    <h1  style="text-align: center; margin-top: 2%;"><%= campground.name %> </h1>
-    <div class="row d-flex flex-wrap" style="margin-top: 7%; ">
-        <div class="col-sm-6 col-md-6">
-            <img src="<%= campground.image %>" style="width: 500px; height: 500px;">
-            <em><strong> Submitted by <%= campground.author.username %></strong></em>
-        </div>
-        <div class="col-lg-6" style="margin: auto 0;">
-            <p style="margin-top: 7%">
-             <%- campground.description %>
-             <br>
-             <span><%= campground.location %></span>
-             <br>
-             <span> Rs <%= campground.cost %> per Night</span>
-             <br>
-            </p>
-            <% if(currentuser && (campground.author.id.equals(currentuser._id) || currentuser.isAdmin)){ %>
-                <a class="btn btn-warning" href="/campgrounds/<%= campground._id %>/edit">EDIT</a>
-                <form id="delete-camp-form"action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST" >
-                   <button class="btn btn-danger">DELETE</button>
-                </form>
-            <% }  %>
-        </div>
+  <div class="ui main text segment">
+    <div class="ui huge header"><%= campground.name %></div>
+    <div class="ui top attached">
+      <div class="item">
+           <img class="ui centered rounded image" src="<%=campground.image  %>">
+      </div>
     </div>
-    <div id="reviewCard" class="card bg-light text-dark">
-     <div id="reviewSection">
-        <% var totalReviews = 0; %>
-        <% var sumReviews = 0; %>
-        <% var averageRating = 0; %>
-        <% var flag_5 = 0; %>
-        <% var flag_4 = 0; %>
-        <% var flag_3 = 0; %>
-        <% var flag_2 = 0; %>
-        <% var flag_1 = 0; %>
-        <% var flag_5percent = 0; %>
-        <% var flag_4percent = 0; %>
-        <% var flag_3percent = 0; %>
-        <% var flag_2percent = 0; %>
-        <% var flag_1percent = 0; %>  
-        <% var starpercentage = 0; %>
-        <% campground.comments.forEach(function(comment){ %>
-           <% if(comment.rating){  %>
-           <%  totalReviews = totalReviews + 1 %>
-           <%  sumReviews = sumReviews + comment.rating %>
-           <% var rating= comment.rating;  %>
-           <% if(rating <= 1 ){  %>
-            <%   flag_1= flag_1 + 1;     %>   
-            <% } else if(rating > 1 && rating < 2){ %>
-            <%           flag_2 = flag_2 + 1;   %>
-            <% } else if(rating >=2 && rating < 3){ %>
-            <%           flag_3 = flag_3 + 1;   %>
-            <% } else if(rating >=3 && rating < 4){ %>
-            <%           flag_4 = flag_4 + 1;   %>
-            <% } else if(rating >= 4 && rating <=5){ %>
-            <%            flag_5+= flag_5+ 1; %>
-            <% } %>
-            <% } %>
-        <% }) %>
-        <% if(totalReviews){  %>   
-        <%  averageRating = (sumReviews/totalReviews);      %>
-        <%    starpercentage = ((averageRating/5)*100)  ;   %>
-        <%    flag_1percent = ((flag_1/totalReviews)*100);  %>
-        <%    flag_2percent = ((flag_2/totalReviews)*100);  %>
-        <%    flag_3percent = ((flag_3/totalReviews)*100); %>
-        <%    flag_4percent = ((flag_4/totalReviews)*100); %>
-        <%    flag_5percent = ((flag_5/totalReviews)*100); %>
-        <%  } %>
-        
-        <span class="heading">User Rating</span>
-        <div class="stars-outer">
-         <div class="stars-inner" style="width: <%= starpercentage %>%;"></div>
-         </div>
-         <p><%= averageRating.toFixed(2) %>  Average rating based on <%=totalReviews %> reviews.</p>
-         <hr style="border:3px solid #f1f1f1">
-
-         <div class="row">
-           <div class="side">
-             <div>5 star</div>
-           </div>
-           <div class="middle">
-             <div class="bar-container">
-               <div style = "width: <%= flag_5percent %>%" class="bar-5"></div>
-             </div>
-           </div>
-           <div class="side right">
-             <div><%=flag_5 %></div>
-           </div>
-           <div class="side">
-             <div >4 star</div>
-           </div>
-           <div class="middle">
-             <div class="bar-container">
-               <div  style = "width: <%= flag_4percent %>%" class="bar-4"></div>
-             </div>
-           </div>
-           <div class="side right">
-             <div><%=flag_4 %></div>
-           </div>
-           <div class="side">
-             <div>3 star</div>
-           </div>
-           <div class="middle">
-             <div class="bar-container">
-               <div  style = "width: <%= flag_3percent %>%" class="bar-3"></div>
-             </div>
-           </div>
-           <div class="side right">
-             <div><%=flag_3 %></div>
-           </div>
-           <div class="side">
-             <div>2 star</div>
-           </div>
-           <div class="middle">
-             <div class="bar-container">
-               <div  style = "width: <%= flag_2percent %>%" class="bar-2"></div>
-             </div>
-           </div>
-           <div class="side right">
-             <div><%=flag_2 %></div>
-           </div>
-           <div class="side">
-             <div>1 star</div>
-           </div>
-           <div class="middle">
-             <div class="bar-container">
-               <div  style = "width: <%= flag_1percent %>%" class="bar-1"></div>
-             </div>
-           </div>
-           <div class="side right">
-             <div><%=flag_1 %></div>
-           </div>
-         </div>
-        
-   <div class="comment-head">
-       <h1>Reviews</h1>
-   </div>
-
-
-      
-      <% campground.comments.forEach(function(comment){ %>
-            <div class="row">
-                <div class="col-md-12">
-                    <strong>
-                        <i class="fas fa-user"></i>
-                        <%= comment.author.username %>
-                    </strong> 
-                    <% if(comment.rating){ %>
-                    <% var starpercentage = ((comment.rating/5)*100)  ; %>
-                    <% var percentageRounded= Math.round(starpercentage/10)* 10 %>  
-                    <strong style="margin-left: 2%;"><%= comment.rating %></strong>
-                      <div class="stars-outer">
-                        <div class="stars-inner" style="width: <%= percentageRounded %>%;"></div>
-                      </div>
-                    
-                    <% }  %>
-                    <span class="float-right"><%= comment.created.toDateString() %></span>
-                    <p>
-                        <%= comment.text %>
-                    </p>
-                    <% if(currentuser && (comment.author.id.equals(currentuser._id) || currentuser.isAdmin)){ %>
-                    <form action="/campgrounds/<%= campground._id %>/<%= comment._id %>?_method=DELETE" method="POST">
-                        <button class="btn btn-danger">Delete</button>
-                    </form>
-                <% } %>
-                    <div class="dropdown-divider"></div>
-                </div>
+  </div>
+  <div class="row d-flex flex-wrap ">
+    <div class="col-sm-6 col-lg-6">
+      <div class="ui main text segment">
+        <div class="ui top attached ">
+          <div class="item">
+            <h1><i class="fas fa-location-arrow"></i>   <%= campground.location %></h1>
+          </div>
+          <hr style="border:3px solid #f1f1f1">
+          <div class="item">
+            <h1><i class="fas fa-rupee-sign"></i>  <%= campground.cost %> per Night</h1>
+             <small>The Rate is submitted by user it may or may not be same.</small>
+          </div>
+          <hr style="border:3px solid #f1f1f1">
+          <div class="item">
+            <h1><i class="fas fa-align-justify"></i> Description</h1>
+            <div class="camp-desc">
+              <p>
+                <%= campground.description %>
+              </p>
             </div>
-        <% }); %>
-        <form action="/campgrounds/<%= campground._id %>" method="POST">
-              <div class="form-group">
-                <label for="rating-control">Write a review</label>
-                <input type="number" id="rating-control" class="form-control" step="0.1" max="5" min="0" placeholder="Rate 1 - 5" name="comment[rating]">
-                <textarea class="form-control" id="comment" name="comment[text]" placeholder="Write something here.."></textarea>
+            <% if(currentuser && (campground.author.id.equals(currentuser._id) || currentuser.isAdmin)){ %>
+              <a class="btn btn-warning" href="/campgrounds/<%= campground._id %>/edit">EDIT</a>
+              <form id="delete-camp-form"action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST" >
+                 <button class="btn btn-danger">DELETE</button>
+              </form>
+          <% }  %>
+          </div>
+          <hr style="border:3px solid #f1f1f1">
+          <div class="item">
+            <h1><i class="fas fa-user"></i>  <%= campground.author.username %></h1>
+          </div>
+          <hr style="border:3px solid #f1f1f1">
+          <div class="item">
+            
+          </div>
 
-              </div>
-              <button type="submit" class="btn btn-primary ">ADD</button>
-        </form>
-       </div>
-     </div>
+      </div>
     </div>
-</div>
+    </div>
+    <div class="col-sm-6 col-lg-6">
+      <div id="reviewCard" class="card bg-light text-dark">
+        <div id="reviewSection">
+           <% var totalReviews = 0; %>
+           <% var sumReviews = 0; %>
+           <% var averageRating = 0; %>
+           <% var flag_5 = 0; %>
+           <% var flag_4 = 0; %>
+           <% var flag_3 = 0; %>
+           <% var flag_2 = 0; %>
+           <% var flag_1 = 0; %>
+           <% var flag_5percent = 0; %>
+           <% var flag_4percent = 0; %>
+           <% var flag_3percent = 0; %>
+           <% var flag_2percent = 0; %>
+           <% var flag_1percent = 0; %>  
+           <% var starpercentage = 0; %>
+           <% campground.comments.forEach(function(comment){ %>
+              <% if(comment.rating){  %>
+              <%  totalReviews = totalReviews + 1 %>
+              <%  sumReviews = sumReviews + comment.rating %>
+              <% var rating= comment.rating;  %>
+              <% if(rating <= 1 ){  %>
+               <%   flag_1= flag_1 + 1;     %>   
+               <% } else if(rating > 1 && rating <= 2){ %>
+               <%           flag_2 = flag_2 + 1;   %>
+               <% } else if(rating >2 && rating <= 3){ %>
+               <%           flag_3 = flag_3 + 1;   %>
+               <% } else if(rating >3 && rating <= 4){ %>
+               <%           flag_4 = flag_4 + 1;   %>
+               <% } else if(rating > 4){ %>
+               <%            flag_5+= flag_5+ 1; %>
+               <% } %>
+               <% } %>
+           <% }) %>
+           <% if(totalReviews){  %>   
+           <%  averageRating = (sumReviews/totalReviews);      %>
+           <%    starpercentage = ((averageRating/5)*100)  ;   %>
+           <%    flag_1percent = ((flag_1/totalReviews)*100);  %>
+           <%    flag_2percent = ((flag_2/totalReviews)*100);  %>
+           <%    flag_3percent = ((flag_3/totalReviews)*100); %>
+           <%    flag_4percent = ((flag_4/totalReviews)*100); %>
+           <%    flag_5percent = ((flag_5/totalReviews)*100); %>
+           <%  } %>
+           
+           <span class="heading">User Rating</span>
+           <div class="stars-outer">
+            <div class="stars-inner" style="width: <%= starpercentage %>%;"></div>
+            </div>
+            <p><%= averageRating.toFixed(2) %>  Average rating based on <%=totalReviews %> reviews.</p>
+            <hr style="border:3px solid #f1f1f1">
+   
+            <div style="margin-left: 1%;" class="row">
+              <div class="side">
+                <div>5 star</div>
+              </div>
+              <div class="middle">
+                <div class="bar-container">
+                  <div style = "width: <%= flag_5percent %>%" class="bar-5"></div>
+                </div>
+              </div>
+              <div class="side right">
+                <div><%=flag_5 %></div>
+              </div>
+              <div class="side">
+                <div >4 star</div>
+              </div>
+              <div class="middle">
+                <div class="bar-container">
+                  <div  style = "width: <%= flag_4percent %>%" class="bar-4"></div>
+                </div>
+              </div>
+              <div class="side right">
+                <div><%=flag_4 %></div>
+              </div>
+              <div class="side">
+                <div>3 star</div>
+              </div>
+              <div class="middle">
+                <div class="bar-container">
+                  <div  style = "width: <%= flag_3percent %>%" class="bar-3"></div>
+                </div>
+              </div>
+              <div class="side right">
+                <div><%=flag_3 %></div>
+              </div>
+              <div class="side">
+                <div>2 star</div>
+              </div>
+              <div class="middle">
+                <div class="bar-container">
+                  <div  style = "width: <%= flag_2percent %>%" class="bar-2"></div>
+                </div>
+              </div>
+              <div class="side right">
+                <div><%=flag_2 %></div>
+              </div>
+              <div class="side">
+                <div>1 star</div>
+              </div>
+              <div class="middle">
+                <div class="bar-container">
+                  <div  style = "width: <%= flag_1percent %>%" class="bar-1"></div>
+                </div>
+              </div>
+              <div class="side right">
+                <div><%=flag_1 %></div>
+              </div>
+            </div>
+           
+      <div class="comment-head">
+          <h1>Reviews</h1>
+      </div>
+   
+   
+         
+         <% campground.comments.forEach(function(comment){ %>
+               <div class="row">
+                   <div class="col-md-12">
+                       <strong>
+                           <i class="fas fa-user"></i>
+                           <%= comment.author.username %>
+                       </strong> 
+                       <% if(comment.rating){ %>
+                       <% var starpercentage = ((comment.rating/5)*100)  ; %>
+                       <% var percentageRounded= Math.round(starpercentage/10)* 10 %>  
+                       <strong style="margin-left: 2%;"><%= comment.rating %></strong>
+                         <div class="stars-outer">
+                           <div class="stars-inner" style="width: <%= percentageRounded %>%;"></div>
+                         </div>
+                       
+                       <% }  %>
+                       <span class="float-right"><%= comment.created.toDateString() %></span>
+                       <p>
+                           <%= comment.text %>
+                       </p>
+                       <% if(currentuser && (comment.author.id.equals(currentuser._id) || currentuser.isAdmin)){ %>
+                       <form action="/campgrounds/<%= campground._id %>/<%= comment._id %>?_method=DELETE" method="POST">
+                           <button class="btn btn-danger">Delete</button>
+                       </form>
+                   <% } %>
+                       <div class="dropdown-divider"></div>
+                   </div>
+               </div>
+           <% }); %>
+           <form action="/campgrounds/<%= campground._id %>" method="POST">
+                 <div class="form-group">
+                   <label for="rating-control">How much Star would you like to give</label>
+                   <input type="number" id="rating-control" class="form-control" step="0.5" max="5" min="0" placeholder="Rate 1 - 5" name="comment[rating]">
+                   <label for="comment">Add Review</label>
+                   <textarea class="form-control" id="comment" name="comment[text]" placeholder="Write something here.."></textarea>
+   
+                 </div>
+                 <button type="submit" class="btn btn-primary ">ADD</button>
+           </form>
+          </div>
+        </div>
+       </div>
+   </div>
+    </div>
+ </div>
 <%- include("../partials/footer") %>
 
