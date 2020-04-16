@@ -1,6 +1,8 @@
 <%- include("../partials/header") %>
   <div class="ui main text segment">
-    <div class="ui huge header"><%= campground.name %></div>
+    <div class="ui huge header">
+      <a id="back-to-camp" href="/campgrounds"><i class="fas fa-arrow-left"></i></a>
+      <%= campground.name %></div>
     <div class="ui top attached">
       <div class="item">
            <img class="ui centered rounded image" src="<%=campground.image  %>">
@@ -199,7 +201,7 @@
                    <textarea class="form-control" id="comment" name="comment[text]" placeholder="Write something here.."></textarea>
    
                  </div>
-                 <button type="submit" class="btn btn-primary ">ADD</button>
+                 <button style="float: right;" type="submit" class="btn btn-primary ">ADD</button>
            </form>
           </div>
         </div>
