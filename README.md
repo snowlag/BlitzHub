@@ -4,4 +4,4 @@ Website Link - http://blitzhub.herokuapp.com/
 Technology Stack
 FrontEnd- Html, CSS , Bootstarp 4 , Semantic Ui
 Backend - NodeJs , Express Framework , MongoDB , Passport( Authenication)
-I made these website with the help of Udemy Course(The Complete WebDeveloper Bootcamp)taken by Colt Steele ( Developer of YelpCamp)
+
