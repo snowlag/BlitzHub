@@ -5,14 +5,14 @@
        <h1 class="display-4">Welcome to BlitzCamp!</h1>
        <p class="lead">The User Submitted Hand Picked Campgrounds from all over the World.</p>
        <hr class="my-4">
-       <a class="btn add-campground btn-lg" href="/campgrounds/new" role="button">Add Campground it</a>
+       <a class="btn add-campground btn-lg" href="/campgrounds/new" role="button">Add Campground</a>
       </div>
    </div>
    <div class="row d-flex flex-wrap ">
     <% campgrounds.forEach(function(campground){  %>
       <div class="col-sm-6 col-md-4">
          <figure class="figure ">
-           <a href="/campgrounds/<%= campground._id %>" ><img src="<%= campground.image %>" class="img-thumbnail figure-img">
+           <a href="/campgrounds/<%= campground._id %>" ><img loading="lazy" src="<%= campground.image %>" class="img-thumbnail figure-img">
            <figcaption id="camp-name" class="figure-caption text-center"><%= campground.name %></figcaption>
            </a>
          </figure>
